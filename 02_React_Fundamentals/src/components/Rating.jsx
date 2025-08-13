@@ -1,5 +1,9 @@
 const Rating = () => {
-  return <h1>Rate your experience</h1>;
+  return (
+    <div className="rating-container">
+      <h2>Rate your experience</h2>
+    </div>
+  );
 };
 
 export default Rating;
