@@ -4,7 +4,7 @@ import Rating from "./components/Rating";
 function App() {
   return (
     <div className="App">
-      <Rating />
+      <Rating heading="How do you feel about React?" />
     </div>
   );
 }
