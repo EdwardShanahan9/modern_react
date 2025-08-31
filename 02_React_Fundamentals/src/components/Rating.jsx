@@ -1,10 +1,12 @@
 import { useState } from "react";
+import Star from "./Star";
 
 const Rating = ({ heading }) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const stars = Array.from({ length: 5 }, (_, index) => index + 1);
   const feedback = ["Terrible", "Poor", "Fair", "Good", "Excellent"];
+  const color = "gold";
 
   return (
     <div className="rating-container">
@@ -12,15 +14,16 @@ const Rating = ({ heading }) => {
 
       <div className="stars">
         {stars.map((star) => (
-          <span
-            onMouseEnter={() => setHover(star)}
-            onMouseLeave={() => setHover(0)}
-            onClick={() => setRating(star)}
+          <Star
             key={star}
-            className={`star ${star <= (hover || rating) ? "active" : ""}`}
-          >
-            {`\u2605`}
-          </span>
+            star={star}
+            rating={rating}
+            hover={hover}
+            color={color}
+            ratingClick={setRating}
+            hoverEnter={setHover}
+            hoverLeave={() => null}
+          />
         ))}
       </div>
 
