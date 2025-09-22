@@ -1,5 +1,6 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import Star from "./Star";
+import Model from "./Model";
 
 const Rating = ({ heading }) => {
   const [rating, setRating] = useState(0);
@@ -50,17 +51,7 @@ const Rating = ({ heading }) => {
         Submit
       </button>
 
-      {submitted && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <h2>Thank You</h2>
-            <p>You rated us {rating} star</p>
-            <button className="close-btn" onClick={handleClose}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      <Model isOpen={submitted} onClose={handleClose} rating={rating} />
     </div>
   );
 };
