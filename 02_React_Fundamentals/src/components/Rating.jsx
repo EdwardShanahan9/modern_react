@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Star from "./Star";
 import Model from "./Model";
+import Button from "./Button";
 
 const Rating = ({ heading }) => {
   const [rating, setRating] = useState(0);
@@ -43,13 +44,13 @@ const Rating = ({ heading }) => {
 
       {rating > 0 && <p className="feedback">{feedback[rating - 1]}</p>}
 
-      <button
+      <Button
         className="submit-btn"
         onClick={handleSubmit}
         disabled={rating === 0}
       >
         Submit
-      </button>
+      </Button>
 
       <Model isOpen={submitted} onClose={handleClose} rating={rating} />
     </div>
